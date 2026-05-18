@@ -89,3 +89,28 @@
   addEventListener('resize', ()=>{resize();init();});
   resize(); init();
 })();
+
+/* TOOLTIPS MOBILE: tap-toggle. En desktop sigue siendo hover puro (CSS). */
+(function(){
+  const isTouch = window.matchMedia('(hover:none)').matches || window.matchMedia('(max-width:900px)').matches;
+  if(!isTouch) return;
+  const cards = document.querySelectorAll('.scard');
+  cards.forEach(card=>{
+    if(!card.querySelector('.scard-tooltip')) return;
+    card.addEventListener('click', e=>{
+      // Si el tap fue sobre un link interno al tooltip, dejarlo pasar
+      if(e.target.closest('a')) return;
+      const wasOpen = card.classList.contains('is-open');
+      // Cerrar todos los demás
+      cards.forEach(c=>c.classList.remove('is-open'));
+      // Toggle el actual
+      if(!wasOpen) card.classList.add('is-open');
+    });
+  });
+  // Tap fuera de cualquier card cierra todos los tooltips abiertos
+  document.addEventListener('click', e=>{
+    if(!e.target.closest('.scard')){
+      cards.forEach(c=>c.classList.remove('is-open'));
+    }
+  });
+})();
