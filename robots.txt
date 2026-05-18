@@ -1,0 +1,2 @@
+https://ztnetwork.cl/* https://www.ztnetwork.cl/:splat 301!
+/* /404.html 404

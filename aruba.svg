@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+<g fill="#1BA0D7">
+<rect x="6" y="22" width="2.5" height="14"/><rect x="11" y="18" width="2.5" height="22"/><rect x="16" y="22" width="2.5" height="14"/>
+<rect x="24" y="18" width="2.5" height="22"/><rect x="29" y="12" width="2.5" height="34"/><rect x="34" y="18" width="2.5" height="22"/>
+<rect x="42" y="18" width="2.5" height="22"/><rect x="47" y="12" width="2.5" height="34"/><rect x="52" y="18" width="2.5" height="22"/>
+<rect x="60" y="22" width="2.5" height="14"/><rect x="65" y="18" width="2.5" height="22"/><rect x="70" y="22" width="2.5" height="14"/>
+</g>
+<text x="80" y="40" font-family="Arial, sans-serif" font-size="26" font-weight="600" letter-spacing="2" fill="#1BA0D7">CISCO</text>
+</svg>
