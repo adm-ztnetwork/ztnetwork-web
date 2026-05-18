@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html lang="es-CL"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>404 · ZT Network</title>
-<link rel="icon" href="/assets/brand/favicon.ico">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:#050B1A;color:#E8F0FA;font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at center,rgba(30,144,255,0.15),transparent 60%);pointer-events:none;z-index:0;}
-.content{position:relative;z-index:1;}
-.code{font-size:8rem;font-weight:700;background:linear-gradient(135deg,#00C8FF,#5BB8FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:0.5rem;}
-.msg{font-size:1.1rem;color:#A8B8D0;margin-bottom:2rem;}
-a{color:#fff;background:linear-gradient(135deg,#1E90FF,#1565C0);text-decoration:none;padding:0.8rem 1.5rem;border-radius:8px;font-weight:600;font-size:0.9rem;transition:transform .3s,box-shadow .3s;display:inline-flex;align-items:center;gap:0.5rem;box-shadow:0 4px 14px rgba(30,144,255,0.3);}
-a:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(30,144,255,0.5);}
-</style>
-</head><body>
-<div class="content">
-  <div class="code">404</div>
-  <div class="msg">Página no encontrada</div>
-  <a href="/">← Volver al inicio</a>
-</div>
-</body></html>
+{
+  "name":"ZT Network",
+  "short_name":"ZT Network",
+  "description":"Redes, ciberseguridad y conectividad empresarial en Chile",
+  "start_url":"/",
+  "display":"standalone",
+  "background_color":"#050B1A",
+  "theme_color":"#050B1A",
+  "lang":"es-CL",
+  "icons":[
+    {"src":"/assets/brand/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"/assets/brand/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}

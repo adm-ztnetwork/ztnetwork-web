@@ -1,91 +1,245 @@
-/* CHISPAS AZULES */
-(function(){
-  const c = document.getElementById('spark-canvas');
-  const ctx = c.getContext('2d');
-  let W, H, particles = [];
-  function resize(){ W = c.width = innerWidth; H = c.height = innerHeight; }
-  resize(); addEventListener('resize', resize);
-  function spark(x, y, n){
-    for(let i=0;i<n;i++){
-      const a = Math.random()*Math.PI*2;
-      const s = Math.random()*3 + 0.8;
-      particles.push({
-        x, y, vx: Math.cos(a)*s, vy: Math.sin(a)*s - Math.random()*1.5,
-        life: 1, r: Math.random()*2 + 0.6, hue: 190 + Math.random()*30
-      });
-    }
-  }
-  let lastMove = 0;
-  document.addEventListener('mousemove', e=>{
-    const now = Date.now();
-    if(now - lastMove < 16) return;
-    lastMove = now;
-    spark(e.clientX, e.clientY, 2);
-  });
-  document.querySelectorAll('[data-spark]').forEach(el=>{
-    el.addEventListener('mousemove', e=>spark(e.clientX, e.clientY, 3));
-  });
-  document.addEventListener('click', e=>spark(e.clientX, e.clientY, 18));
-  (function loop(){
-    ctx.clearRect(0, 0, W, H);
-    particles = particles.filter(p=>p.life>0);
-    particles.forEach(p=>{
-      p.x += p.vx; p.y += p.vy;
-      p.vy += 0.06; p.vx *= 0.99; p.life -= 0.022;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r * p.life, 0, Math.PI*2);
-      ctx.fillStyle = `hsla(${p.hue}, 100%, ${50 + p.life*30}%, ${p.life * 0.9})`;
-      ctx.shadowBlur = 12;
-      ctx.shadowColor = `hsla(${p.hue}, 100%, 60%, ${p.life})`;
-      ctx.fill(); ctx.shadowBlur = 0;
-    });
-    requestAnimationFrame(loop);
-  })();
-})();
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZT Network · Soluciones tecnológicas que impulsan tu negocio</title>
+<meta name="description" content="Redes empresariales, ciberseguridad, fibra óptica y consultoría TI en Chile. Cumplimos Ley 21.663 y Ley 21.719.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
 
-/* FONDO RED DE NODOS */
-(function(){
-  const c = document.getElementById('bg-canvas');
-  if(!c) return;
-  const ctx = c.getContext('2d');
-  let nodes = [], W, H;
-  function resize(){ W = c.width = innerWidth; H = c.height = innerHeight; }
-  function init(){
-    nodes = [];
-    const n = Math.floor(W*H / 28000);
-    for(let i=0;i<n;i++) nodes.push({
-      x: Math.random()*W, y: Math.random()*H,
-      vx: (Math.random()-0.5)*0.2, vy: (Math.random()-0.5)*0.2,
-      r: Math.random()*1.2+0.4, pulse: Math.random()*Math.PI*2
-    });
-  }
-  (function draw(){
-    ctx.clearRect(0,0,W,H);
-    const t = Date.now()*0.001;
-    for(let i=0;i<nodes.length;i++){
-      for(let j=i+1;j<nodes.length;j++){
-        const dx = nodes[i].x-nodes[j].x, dy = nodes[i].y-nodes[j].y;
-        const d = Math.sqrt(dx*dx+dy*dy);
-        if(d<150){
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(91,184,255,${(1-d/150)*0.10})`;
-          ctx.lineWidth = 0.5;
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-    nodes.forEach(n=>{
-      const g = (Math.sin(t+n.pulse)+1)*0.5;
-      ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
-      ctx.fillStyle = `rgba(91,184,255,${0.12+g*0.25})`; ctx.fill();
-      n.x += n.vx; n.y += n.vy;
-      if(n.x<0||n.x>W) n.vx*=-1;
-      if(n.y<0||n.y>H) n.vy*=-1;
-    });
-    requestAnimationFrame(draw);
-  })();
-  addEventListener('resize', ()=>{resize();init();});
-  resize(); init();
-})();
+<canvas id="bg-canvas"></canvas>
+<canvas id="spark-canvas"></canvas>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header" data-spark>
+    <img class="logo-img" src="/assets/brand/logo-hero.png" alt="ZT Network · Tecnología que conecta. Soluciones que protegen.">
+    <h1 class="hero-title">Soluciones tecnológicas <span>que impulsan tu negocio.</span></h1>
+  </header>
+
+  <!-- SERVICIOS -->
+  <section class="services-section">
+    <div class="eyebrow-row">
+      <span class="eyebrow">Nuestros servicios</span>
+    </div>
+    <div class="services-grid">
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Redes Empresariales</div>
+          <div class="scard-desc">Conectividad segura, estable y escalable para tu operación.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Diseño de redes LAN/WAN segmentadas y resilientes.</b>
+            <ul><li>Switching <b>L2/L3</b> y VLANs</li><li>Routing dinámico y SD-WAN</li><li>Auditorías de red y optimización</li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6z"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Fibra Óptica</div>
+          <div class="scard-desc">Instalación, certificación y fusión para máxima velocidad.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Tendido, fusión y certificación bajo norma TIA/EIA.</b>
+            <ul><li>Fibra <b>monomodo</b> y <b>multimodo</b></li><li>Fusión, certificación OTDR</li><li>Enlaces inter-edificios y troncales</li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12M6 20h12M6 4v16M18 4v16M6 12h12"/><circle cx="6" cy="4" r="1.5" fill="currentColor"/><circle cx="18" cy="4" r="1.5" fill="currentColor"/><circle cx="6" cy="20" r="1.5" fill="currentColor"/><circle cx="18" cy="20" r="1.5" fill="currentColor"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Cableado Estructurado</div>
+          <div class="scard-desc">Infraestructura profesional bajo estándares internacionales.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Infraestructura certificada para crecer sin reemplazar.</b>
+            <ul><li>Categorías <b>Cat6, Cat6A, Cat7</b></li><li>Racks, patch panels y organización</li><li>Certificación con equipos Fluke</li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Seguridad Perimetral</div>
+          <div class="scard-desc">Protección avanzada para tu red, datos y usuarios.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Defensa en capas para proteger tu red y tus datos.</b>
+            <ul><li>Firewalls <b>Fortinet</b> NGFW</li><li>VPN site-to-site y SSL-VPN</li><li>Segmentación y políticas de acceso</li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m23 7-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Videovigilancia IP</div>
+          <div class="scard-desc">Monitoreo inteligente en alta definición para mayor control.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Sistemas CCTV con grabación local o en la nube.</b>
+            <ul><li>Cámaras <b>Hikvision, Dahua, IMOU</b></li><li>NVR con redundancia y respaldos</li><li>Acceso remoto y notificaciones</li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polyline points="6 10 9 13 12 9 15 12 18 8"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Monitoreo y Soporte</div>
+          <div class="scard-desc">Supervisión 24/7 y soporte técnico especializado.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Vigilancia proactiva 24/7 sobre tu infraestructura.</b>
+            <ul><li>Alertas tempranas por <b>SNMP</b></li><li>Soporte técnico remoto y en sitio</li><li>Reportes mensuales de salud</li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Electricidad y Canalización</div>
+          <div class="scard-desc">Instalaciones eléctricas con altos estándares de seguridad.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Instalaciones eléctricas para entornos TI críticos.</b>
+            <ul><li>Tableros, tierra y UPS</li><li>Canalizaciones EMT y bandejas</li><li>Cumplimiento norma <b>NCh Elec. 4/2003</b></li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Consultoría TI</div>
+          <div class="scard-desc">Asesoría estratégica para proyectos de transformación.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Diseño técnico y acompañamiento estratégico.</b>
+            <ul><li>Levantamiento de requerimientos</li><li>Propuestas técnicas con BoM</li><li>Acompañamiento en licitaciones</li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.44 7.85a1.49 1.49 0 0 1 .29.88l1.57 1.57a2.4 2.4 0 0 1 0 3.4l-1.61 1.61a.98.98 0 0 1-.84.28c-.47-.07-.8-.48-.97-.93a2.5 2.5 0 1 0-3.21 3.21c.45.17.86.5.93.97a.98.98 0 0 1-.28.84l-1.61 1.61a2.4 2.4 0 0 1-3.4 0L8.74 19.7a1.03 1.03 0 0 0-.88-.29c-.49.07-.84.5-1.02.97a2.5 2.5 0 1 1-3.24-3.24c.46-.18.89-.53.97-1.02a1.03 1.03 0 0 0-.29-.88L2.7 13.7a2.4 2.4 0 0 1 0-3.4L4.23 8.77a.98.98 0 0 1 .92-.3c.51.08.88.53 1.07 1.01a2.5 2.5 0 1 0 3.26-3.26c-.48-.2-.93-.56-1.01-1.07a.98.98 0 0 1 .3-.92l1.53-1.53a2.4 2.4 0 0 1 3.4 0l1.57 1.57c.23.23.55.34.88.29.49-.07.84-.5 1.02-.97a2.5 2.5 0 1 1 3.24 3.24c-.46.18-.89.53-.97 1.02Z"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Implementaciones</div>
+          <div class="scard-desc">Integración eficiente de soluciones orientadas a resultados.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Llave en mano: del plano al cable energizado.</b>
+            <ul><li>Coordinación de proveedores</li><li>Documentación as-built</li><li>Capacitación de tu equipo</li></ul>
+          </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MARCAS + ESPECIALISTAS CERTIFICADOS -->
+  <section class="brands-section">
+    <div class="eyebrow-row" style="margin-bottom:0.4rem">
+      <span class="eyebrow">Trabajamos con las mejores marcas</span>
+      <span class="eyebrow-divider">|</span>
+      <span class="eyebrow">Especialistas certificados</span>
+    </div>
+    <div class="carousel-track-wrap">
+      <div class="carousel-track">
+          <img src="/assets/brand/logos/fortinet.svg" alt="Fortinet" class="brand-logo" style="height:26px">
+          <img src="/assets/brand/logos/aruba.svg" alt="Aruba" class="brand-logo" style="height:52px">
+          <img src="/assets/brand/logos/cisco.svg" alt="Cisco" class="brand-logo" style="height:42px">
+          <img src="/assets/brand/logos/hikvision.svg" alt="Hikvision" class="brand-logo" style="height:32px">
+          <img src="/assets/brand/logos/mikrotik.svg" alt="Mikrotik" class="brand-logo" style="height:38px">
+          <img src="/assets/brand/logos/ubiquiti.svg" alt="Ubiquiti" class="brand-logo" style="height:68px">
+          <img src="/assets/brand/logos/dahua.svg" alt="Dahua" class="brand-logo" style="height:44px">
+          <img src="/assets/brand/logos/imou.svg" alt="Imou" class="brand-logo" style="height:72px">
+          <img src="/assets/brand/logos/reolink.svg" alt="Reolink" class="brand-logo" style="height:64px">
+
+          <img src="/assets/brand/logos/fortinet.svg" alt="" class="brand-logo" style="height:26px" aria-hidden="true">
+          <img src="/assets/brand/logos/aruba.svg" alt="" class="brand-logo" style="height:52px" aria-hidden="true">
+          <img src="/assets/brand/logos/cisco.svg" alt="" class="brand-logo" style="height:42px" aria-hidden="true">
+          <img src="/assets/brand/logos/hikvision.svg" alt="" class="brand-logo" style="height:32px" aria-hidden="true">
+          <img src="/assets/brand/logos/mikrotik.svg" alt="" class="brand-logo" style="height:38px" aria-hidden="true">
+          <img src="/assets/brand/logos/ubiquiti.svg" alt="" class="brand-logo" style="height:68px" aria-hidden="true">
+          <img src="/assets/brand/logos/dahua.svg" alt="" class="brand-logo" style="height:44px" aria-hidden="true">
+          <img src="/assets/brand/logos/imou.svg" alt="" class="brand-logo" style="height:72px" aria-hidden="true">
+          <img src="/assets/brand/logos/reolink.svg" alt="" class="brand-logo" style="height:64px" aria-hidden="true">
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE CUMPLIMIENTO NORMATIVO + ANCI -->
+  <div class="compliance" data-spark>
+    <div class="compliance-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <p class="compliance-text">
+      Nuestra infraestructura y procesos se alinean de forma continua con la evolución normativa de la <b>Ley N° 21.663</b> (Marco de Ciberseguridad) y la <b>Ley N° 21.719</b> (Protección de Datos Personales).
+    </p>
+    <a href="https://anci.gob.cl/reportar-incidentes/" target="_blank" rel="noopener" class="compliance-btn" data-spark aria-label="Reportar emergencia a la Agencia Nacional de Ciberseguridad">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span class="compliance-btn-text">
+        <span>¿Sufres una emergencia de ciberseguridad?</span>
+        <small>Reportar a la ANCI · Agencia Nacional de Ciberseguridad</small>
+      </span>
+    </a>
+  </div>
+
+  <!-- NOSOTROS / MISIÓN / VISIÓN + CTA -->
+  <section class="bottom-section">
+
+    <div class="bcard" data-spark>
+      <div class="bcard-head">
+        <div class="bcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="7" r="4"/><circle cx="17" cy="9" r="3"/><path d="M2 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2M16 17h6"/></svg></div>
+        <span class="bcard-title">Nosotros</span>
+      </div>
+      <p class="bcard-text">No revendemos tecnología. Somos ingenieros que diseñan, implementan y defienden tu infraestructura. <b>Menos reuniones de venta, más soluciones que funcionan.</b></p>
+    </div>
+
+    <div class="bcard" data-spark>
+      <div class="bcard-head">
+        <div class="bcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <span class="bcard-title">Misión</span>
+      </div>
+      <p class="bcard-text">Ayudar a empresas a contar con infraestructura tecnológica segura y estable, con soporte cercano y atención personalizada en cada etapa.</p>
+    </div>
+
+    <div class="bcard" data-spark>
+      <div class="bcard-head">
+        <div class="bcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <span class="bcard-title">Visión</span>
+      </div>
+      <p class="bcard-text">Ser reconocidos por nuestra cercanía, compromiso y confianza. Crecer junto a clientes que valoran un servicio profesional y humano.</p>
+    </div>
+
+    <div class="bcard cta-card" data-spark>
+      <div class="cta-question">¿Necesitas una solución <span>confiable</span> para tu infraestructura?</div>
+      <div class="cta-buttons">
+        <a href="mailto:contacto@ztnetwork.cl" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          contacto@ztnetwork.cl
+        </a>
+        <a href="https://wa.me/56974679583?text=Hola%20ZT%20Network%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" class="btn btn--whatsapp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          +56 9 7467 9583
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>© 2026 ZTNETWORK LIMITADA</span>
+    <span>Tecnología que conecta · Soluciones que protegen</span>
+  </footer>
+
+</div>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,2 +1,19 @@
-https://ztnetwork.cl/* https://www.ztnetwork.cl/:splat 301!
-/* /404.html 404
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Disallow: /
+User-agent: ChatGPT-User
+Disallow: /
+User-agent: CCBot
+Disallow: /
+User-agent: anthropic-ai
+Disallow: /
+User-agent: PerplexityBot
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+
+Sitemap: https://www.ztnetwork.cl/sitemap.xml
