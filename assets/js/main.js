@@ -1,46 +1,78 @@
 /* CHISPAS AZULES */
 (function(){
   const c = document.getElementById('spark-canvas');
+  if(!c) return;
   const ctx = c.getContext('2d');
-  let W, H, particles = [];
-  function resize(){ W = c.width = innerWidth; H = c.height = innerHeight; }
-  resize(); addEventListener('resize', resize);
+  let W = 0, H = 0, dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+  let particles = [];
+
+  function resize(){
+    W = innerWidth; H = innerHeight;
+    c.width = W * dpr;
+    c.height = H * dpr;
+    c.style.width = W + 'px';
+    c.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  addEventListener('resize', resize);
+
   function spark(x, y, n){
-    for(let i=0;i<n;i++){
-      const a = Math.random()*Math.PI*2;
-      const s = Math.random()*3 + 0.8;
+    for(let i = 0; i < n; i++){
+      const a = Math.random() * Math.PI * 2;
+      const s = Math.random() * 3 + 0.8;
       particles.push({
-        x, y, vx: Math.cos(a)*s, vy: Math.sin(a)*s - Math.random()*1.5,
-        life: 1, r: Math.random()*2 + 0.6, hue: 190 + Math.random()*30
+        x, y,
+        vx: Math.cos(a) * s,
+        vy: Math.sin(a) * s - Math.random() * 1.5,
+        life: 1,
+        r: Math.random() * 2 + 0.6,
+        hue: 190 + Math.random() * 30
       });
     }
+    // Limitar la cantidad máxima de partículas vivas para no saturar
+    if(particles.length > 600) particles.splice(0, particles.length - 600);
   }
+
   let lastMove = 0;
-  document.addEventListener('mousemove', e=>{
+  function onMove(x, y, n){
     const now = Date.now();
     if(now - lastMove < 16) return;
     lastMove = now;
-    spark(e.clientX, e.clientY, 2);
-  });
-  document.querySelectorAll('[data-spark]').forEach(el=>{
-    el.addEventListener('mousemove', e=>spark(e.clientX, e.clientY, 3));
-  });
-  document.addEventListener('click', e=>spark(e.clientX, e.clientY, 18));
-  (function loop(){
+    spark(x, y, n);
+  }
+
+  // Escuchamos en window con capture para que siempre llegue, sin importar
+  // qué elemento esté arriba (modals, overlays, etc.)
+  window.addEventListener('mousemove', e => onMove(e.clientX, e.clientY, 2), {passive:true});
+  window.addEventListener('click', e => spark(e.clientX, e.clientY, 18), {passive:true});
+  // Soporte touch: chispas siguen el dedo
+  window.addEventListener('touchmove', e => {
+    if(e.touches && e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY, 2);
+  }, {passive:true});
+
+  // Loop con manejo de pestaña inactiva (evita acumulación de frames raros)
+  function loop(){
     ctx.clearRect(0, 0, W, H);
-    particles = particles.filter(p=>p.life>0);
-    particles.forEach(p=>{
-      p.x += p.vx; p.y += p.vy;
-      p.vy += 0.06; p.vx *= 0.99; p.life -= 0.022;
+    particles = particles.filter(p => p.life > 0);
+    for(let i = 0; i < particles.length; i++){
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.06;
+      p.vx *= 0.99;
+      p.life -= 0.022;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r * p.life, 0, Math.PI*2);
-      ctx.fillStyle = `hsla(${p.hue}, 100%, ${50 + p.life*30}%, ${p.life * 0.9})`;
+      ctx.arc(p.x, p.y, p.r * p.life, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${p.hue}, 100%, ${50 + p.life * 30}%, ${p.life * 0.9})`;
       ctx.shadowBlur = 12;
       ctx.shadowColor = `hsla(${p.hue}, 100%, 60%, ${p.life})`;
-      ctx.fill(); ctx.shadowBlur = 0;
-    });
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
     requestAnimationFrame(loop);
-  })();
+  }
+  requestAnimationFrame(loop);
 })();
 
 /* FONDO RED DE NODOS */
