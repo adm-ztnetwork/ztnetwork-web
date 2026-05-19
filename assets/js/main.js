@@ -3,19 +3,19 @@
   const c = document.getElementById('spark-canvas');
   if(!c) return;
   const ctx = c.getContext('2d');
-  let W = 0, H = 0, dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+  let W = 0, H = 0;
   let particles = [];
 
-  function resize(){
-    W = innerWidth; H = innerHeight;
-    c.width = W * dpr;
-    c.height = H * dpr;
-    c.style.width = W + 'px';
-    c.style.height = H + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  function syncSize(){
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    if(w !== W || h !== H){
+      W = w; H = h;
+      c.width = W;
+      c.height = H;
+    }
   }
-  resize();
-  addEventListener('resize', resize);
+  syncSize();
 
   function spark(x, y, n){
     for(let i = 0; i < n; i++){
@@ -30,7 +30,6 @@
         hue: 190 + Math.random() * 30
       });
     }
-    // Limitar la cantidad máxima de partículas vivas para no saturar
     if(particles.length > 600) particles.splice(0, particles.length - 600);
   }
 
@@ -42,17 +41,17 @@
     spark(x, y, n);
   }
 
-  // Escuchamos en window con capture para que siempre llegue, sin importar
-  // qué elemento esté arriba (modals, overlays, etc.)
   window.addEventListener('mousemove', e => onMove(e.clientX, e.clientY, 2), {passive:true});
   window.addEventListener('click', e => spark(e.clientX, e.clientY, 18), {passive:true});
-  // Soporte touch: chispas siguen el dedo
   window.addEventListener('touchmove', e => {
     if(e.touches && e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY, 2);
   }, {passive:true});
 
-  // Loop con manejo de pestaña inactiva (evita acumulación de frames raros)
   function loop(){
+    // Sincronizar tamaño en cada frame para evitar desfase si el viewport cambia.
+    // Importante: setear c.width/height RESETEA el canvas, así que solo lo hacemos
+    // dentro de syncSize que comprueba si realmente cambió.
+    syncSize();
     ctx.clearRect(0, 0, W, H);
     particles = particles.filter(p => p.life > 0);
     for(let i = 0; i < particles.length; i++){
