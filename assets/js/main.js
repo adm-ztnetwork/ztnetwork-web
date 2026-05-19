@@ -48,26 +48,29 @@
   }, {passive:true});
 
   function loop(){
-    // Sincronizar tamaño en cada frame para evitar desfase si el viewport cambia.
-    // Importante: setear c.width/height RESETEA el canvas, así que solo lo hacemos
-    // dentro de syncSize que comprueba si realmente cambió.
-    syncSize();
-    ctx.clearRect(0, 0, W, H);
-    particles = particles.filter(p => p.life > 0);
-    for(let i = 0; i < particles.length; i++){
-      const p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
-      p.vy += 0.06;
-      p.vx *= 0.99;
-      p.life -= 0.022;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r * p.life, 0, Math.PI * 2);
-      ctx.fillStyle = `hsla(${p.hue}, 100%, ${50 + p.life * 30}%, ${p.life * 0.9})`;
-      ctx.shadowBlur = 12;
-      ctx.shadowColor = `hsla(${p.hue}, 100%, 60%, ${p.life})`;
-      ctx.fill();
-      ctx.shadowBlur = 0;
+    try {
+      syncSize();
+      ctx.clearRect(0, 0, W, H);
+      particles = particles.filter(p => p.life > 0);
+      for(let i = 0; i < particles.length; i++){
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.06;
+        p.vx *= 0.99;
+        p.life -= 0.022;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * p.life, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${p.hue}, 100%, ${50 + p.life * 30}%, ${p.life * 0.9})`;
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = `hsla(${p.hue}, 100%, 60%, ${p.life})`;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    } catch(err) {
+      console.error('[spark loop error]', err);
+      // No tirar la cadena: limpiamos partículas para evitar bucles de error y seguimos.
+      particles = [];
     }
     requestAnimationFrame(loop);
   }
