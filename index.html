@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- SEO básico -->
-<title>ZT Network · Implementación Fortinet, Redes y Ciberseguridad para Empresas · Chile</title>
-<meta name="description" content="Diseñamos e implementamos infraestructura Fortinet, redes empresariales y ciberseguridad para empresas en crecimiento en Chile. Soporte y monitoreo 24/7. Cumplimos Ley 21.663 y 21.719.">
+<title>ZT Network · Fortinet Engage Partner · Ciberseguridad y Redes para Empresas · Chile</title>
+<meta name="description" content="Partner Fortinet Engage (Advocate) en Chile. Implementamos firewalls FortiGate, SD-WAN, acceso seguro y ciberseguridad para empresas en crecimiento. Soporte y monitoreo 24/7. Cumplimos Ley 21.663 y 21.719.">
 <meta name="keywords" content="Fortinet Chile, implementación firewall Fortinet, redes empresariales Santiago, ciberseguridad PyME, fibra óptica empresa, cableado estructurado, videovigilancia IP, Hikvision, Dahua, soporte TI 24/7, consultoría TI Chile, Ley 21.663, Ley 21.719">
 <meta name="author" content="ZT Network">
 <meta name="robots" content="index, follow">
@@ -86,12 +86,15 @@
     "@type": "OfferCatalog",
     "name": "Servicios ZT Network",
     "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Implementación Fortinet y Seguridad Perimetral"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Redes Empresariales LAN/WAN"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fibra Óptica y Cableado Estructurado"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Firewall FortiGate y Seguridad Perimetral"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "FortiGate Secure SD-WAN y Conectividad Segura"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Acceso Seguro FortiAP y FortiSwitch"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seguridad de Endpoints y Zero Trust FortiClient"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gestión y Visibilidad FortiManager y FortiAnalyzer"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Monitoreo y Soporte Gestionado 24/7"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Consultoría TI y Ciberseguridad"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Videovigilancia IP"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Monitoreo y Soporte 24/7"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Consultoría TI y Ciberseguridad"}}
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Electricidad y Canalización"}}
     ]
   }
 }
@@ -100,6 +103,20 @@
 <!-- Fuentes y estilos -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
+
+<!-- Estilos Fortinet Partner (scoped, no alteran style.css) -->
+<style>
+.zt-partner{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin:1.6rem auto 0;max-width:640px}
+.zt-partner__tile{background:#fff;border-radius:14px;padding:14px 26px;display:inline-flex;align-items:center;box-shadow:0 8px 26px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08)}
+.zt-partner__tile img{height:46px;width:auto;display:block}
+.zt-partner__label{display:flex;flex-direction:column;text-align:left;line-height:1.25}
+.zt-partner__label b{color:#E8F0FA;font-size:.95rem;font-weight:700}
+.zt-partner__label span{color:#A8B8D0;font-size:.8rem;letter-spacing:.03em}
+.svc-group-label{grid-column:1 / -1;display:flex;align-items:center;gap:.7rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#5BB8FF;font-weight:700;margin:.6rem 0 -.1rem}
+.svc-group-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(91,184,255,.35),transparent)}
+.footer-legal{display:block;font-size:.72rem;color:#6A7C9A;line-height:1.5;max-width:760px;margin:.6rem auto 0;text-align:center}
+@media(max-width:520px){.zt-partner__tile{padding:12px 18px}.zt-partner__tile img{height:38px}}
+</style>
 </head>
 <body>
 
@@ -123,6 +140,15 @@
       <div class="header-spacer" aria-hidden="true"></div>
     </div>
     <h1 class="hero-title">Soluciones tecnológicas <span>que impulsan tu negocio.</span></h1>
+    <div class="zt-partner" aria-label="Fortinet Engage Advocate Partner">
+      <div class="zt-partner__tile">
+        <img src="/assets/brand/fortinet-engage-partner.png" alt="Fortinet Engage Advocate Partner">
+      </div>
+      <div class="zt-partner__label">
+        <b>Fortinet Engage Partner</b>
+        <span>Nivel Advocate · Modelo Integrator</span>
+      </div>
+    </div>
   </header>
 
   <!-- SERVICIOS -->
@@ -132,51 +158,91 @@
     </div>
     <div class="services-grid">
 
-      <div class="scard" data-spark>
-        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/></svg></div>
-        <div class="scard-content">
-          <div class="scard-name">Redes Empresariales</div>
-          <div class="scard-desc">Conectividad segura, estable y escalable para tu operación.</div>
-        </div>
-        <div class="scard-tooltip">
-            <b>Diseño de redes LAN/WAN segmentadas y resilientes.</b>
-            <ul><li>Switching <b>L2/L3</b> y VLANs</li><li>Routing dinámico y SD-WAN</li><li>Auditorías de red</li><li>Soluciones inalámbricas</li><li>Respaldo satelital con <b>Starlink</b></li></ul>
-          </div>
-      </div>
-
-      <div class="scard" data-spark>
-        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6z"/></svg></div>
-        <div class="scard-content">
-          <div class="scard-name">Fibra Óptica</div>
-          <div class="scard-desc">Instalación, certificación y fusión para máxima velocidad.</div>
-        </div>
-        <div class="scard-tooltip">
-            <b>Tendido y fusión bajo norma TIA/EIA.</b>
-            <ul><li>Fibra <b>monomodo</b> y <b>multimodo</b></li><li>Fusión y certificación OTDR</li></ul>
-          </div>
-      </div>
-
-      <div class="scard" data-spark>
-        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12M6 20h12M6 4v16M18 4v16M6 12h12"/><circle cx="6" cy="4" r="1.5" fill="currentColor"/><circle cx="18" cy="4" r="1.5" fill="currentColor"/><circle cx="6" cy="20" r="1.5" fill="currentColor"/><circle cx="18" cy="20" r="1.5" fill="currentColor"/></svg></div>
-        <div class="scard-content">
-          <div class="scard-name">Cableado Estructurado</div>
-          <div class="scard-desc">Infraestructura profesional bajo estándares internacionales.</div>
-        </div>
-        <div class="scard-tooltip">
-            <b>Infraestructura certificada para crecer sin reemplazar.</b>
-            <ul><li>Categorías <b>Cat6, Cat6A, Cat7</b></li><li>Racks y patch panels</li></ul>
-          </div>
-      </div>
+      <div class="svc-group-label">Soluciones Fortinet</div>
 
       <div class="scard" data-spark>
         <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <div class="scard-content">
-          <div class="scard-name">Seguridad Perimetral</div>
-          <div class="scard-desc">Protección avanzada para tu red, datos y usuarios.</div>
+          <div class="scard-name">Firewall y Seguridad Perimetral</div>
+          <div class="scard-desc">Protección avanzada para tu red, datos y usuarios con tecnología Fortinet.</div>
         </div>
         <div class="scard-tooltip">
-            <b>Defensa en capas para proteger tu red y datos.</b>
-            <ul><li>Firewalls <b>Fortinet</b> NGFW</li><li>VPN site-to-site / SSL-VPN</li><li>Segmentación</li></ul>
+            <b>Defensa en capas sobre firewalls FortiGate NGFW.</b>
+            <ul><li>Implementación y tuning de <b>FortiGate</b></li><li>VPN site-to-site y SSL-VPN</li><li>Segmentación y políticas de seguridad</li><li>Inspección de amenazas e IPS</li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">SD-WAN y Conectividad Segura</div>
+          <div class="scard-desc">Enlaces optimizados y resilientes entre tus sedes y la nube.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Conectividad inteligente con FortiGate Secure SD-WAN.</b>
+            <ul><li>Balanceo y failover de enlaces</li><li>Priorización de aplicaciones críticas</li><li>Túneles cifrados entre sucursales</li><li>Respaldo satelital con <b>Starlink</b></li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a7 7 0 0 1 14 0"/><path d="M8.5 16.5a3.5 3.5 0 0 1 7 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Acceso Seguro y Wi-Fi</div>
+          <div class="scard-desc">Red cableada e inalámbrica gestionada y protegida de extremo a extremo.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Acceso unificado con FortiAP y FortiSwitch.</b>
+            <ul><li>Puntos de acceso <b>FortiAP</b> gestionados</li><li>Switching seguro con <b>FortiSwitch</b></li><li>VLANs y control de acceso por usuario</li><li>Wi-Fi corporativo con portal cautivo</li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="m9 9.5 2 2 4-4"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Endpoints y Zero Trust</div>
+          <div class="scard-desc">Protección de equipos y acceso de confianza cero para tu gente.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Seguridad del endpoint con FortiClient.</b>
+            <ul><li>Agente <b>FortiClient</b> en equipos</li><li>Acceso Zero Trust con <b>FortiClient ZTNA</b></li><li>Control de aplicaciones y dispositivos</li><li>Protección para trabajo remoto</li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0"/><path d="M12 12l4-2.5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><path d="M3 12h2M19 12h2M12 3v2"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Gestión y Visibilidad</div>
+          <div class="scard-desc">Administración central, logs y reportería de toda tu seguridad.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Control total con FortiManager y FortiAnalyzer.</b>
+            <ul><li>Administración central con <b>FortiManager</b></li><li>Logs y reportes con <b>FortiAnalyzer</b></li><li>Tableros de cumplimiento y auditoría</li><li>Alertas y análisis de eventos</li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Monitoreo y Soporte 24/7</div>
+          <div class="scard-desc">Supervisión proactiva y soporte técnico especializado todo el año.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Soporte gestionado sobre tu plataforma Fortinet.</b>
+            <ul><li>Monitoreo proactivo y alertas tempranas</li><li>Soporte remoto y en sitio</li><li>Gestión de actualizaciones y firmware</li><li>Reportes mensuales de estado</li></ul>
+          </div>
+      </div>
+
+      <div class="svc-group-label">Otros servicios</div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Consultoría TI</div>
+          <div class="scard-desc">Asesoría estratégica para proyectos de transformación.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Diseño técnico y acompañamiento estratégico.</b>
+            <ul><li>Levantamiento de requerimientos</li><li>Acompañamiento en licitaciones</li></ul>
           </div>
       </div>
 
@@ -193,18 +259,6 @@
       </div>
 
       <div class="scard" data-spark>
-        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polyline points="6 10 9 13 12 9 15 12 18 8"/></svg></div>
-        <div class="scard-content">
-          <div class="scard-name">Monitoreo y Soporte</div>
-          <div class="scard-desc">Supervisión 24/7 y soporte técnico especializado.</div>
-        </div>
-        <div class="scard-tooltip">
-            <b>Vigilancia proactiva 24/7 sobre tu infraestructura.</b>
-            <ul><li>Alertas tempranas por <b>SNMP</b></li><li>Soporte remoto y en sitio</li><li>Reportes mensuales</li><li>Plataformas <b>PRTG / Zabbix</b></li></ul>
-          </div>
-      </div>
-
-      <div class="scard" data-spark>
         <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <div class="scard-content">
           <div class="scard-name">Electricidad y Canalización</div>
@@ -212,31 +266,7 @@
         </div>
         <div class="scard-tooltip">
             <b>Instalaciones para entornos TI críticos.</b>
-            <ul><li>Tableros, tierra y UPS</li><li>Canalizaciones EMT y bandejas</li></ul>
-          </div>
-      </div>
-
-      <div class="scard" data-spark>
-        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="scard-content">
-          <div class="scard-name">Consultoría TI</div>
-          <div class="scard-desc">Asesoría estratégica para proyectos de transformación.</div>
-        </div>
-        <div class="scard-tooltip">
-            <b>Diseño técnico y acompañamiento estratégico.</b>
-            <ul><li>Levantamiento de requerimientos</li><li>Acompañamiento en licitaciones</li></ul>
-          </div>
-      </div>
-
-      <div class="scard" data-spark>
-        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.44 7.85a1.49 1.49 0 0 1 .29.88l1.57 1.57a2.4 2.4 0 0 1 0 3.4l-1.61 1.61a.98.98 0 0 1-.84.28c-.47-.07-.8-.48-.97-.93a2.5 2.5 0 1 0-3.21 3.21c.45.17.86.5.93.97a.98.98 0 0 1-.28.84l-1.61 1.61a2.4 2.4 0 0 1-3.4 0L8.74 19.7a1.03 1.03 0 0 0-.88-.29c-.49.07-.84.5-1.02.97a2.5 2.5 0 1 1-3.24-3.24c.46-.18.89-.53.97-1.02a1.03 1.03 0 0 0-.29-.88L2.7 13.7a2.4 2.4 0 0 1 0-3.4L4.23 8.77a.98.98 0 0 1 .92-.3c.51.08.88.53 1.07 1.01a2.5 2.5 0 1 0 3.26-3.26c-.48-.2-.93-.56-1.01-1.07a.98.98 0 0 1 .3-.92l1.53-1.53a2.4 2.4 0 0 1 3.4 0l1.57 1.57c.23.23.55.34.88.29.49-.07.84-.5 1.02-.97a2.5 2.5 0 1 1 3.24 3.24c-.46.18-.89.53-.97 1.02Z"/></svg></div>
-        <div class="scard-content">
-          <div class="scard-name">Implementaciones</div>
-          <div class="scard-desc">Integración eficiente de soluciones orientadas a resultados.</div>
-        </div>
-        <div class="scard-tooltip">
-            <b>Llave en mano: del plano al cable energizado.</b>
-            <ul><li>Coordinación de proveedores</li><li>Documentación as-built</li><li>Capacitación de tu equipo</li></ul>
+            <ul><li>Tableros, tierra y UPS</li><li>Canalizaciones EMT y bandejas</li><li>Fibra óptica y cableado estructurado</li></ul>
           </div>
       </div>
 
@@ -338,6 +368,7 @@
   <footer class="footer">
     <span>© 2026 ZTNETWORK LIMITADA</span>
     <span>Tecnología que conecta · Soluciones que protegen</span>
+    <span class="footer-legal">Fortinet®, FortiGate®, FortiAP®, FortiSwitch™, FortiClient®, FortiManager™ y FortiAnalyzer® son marcas registradas o marcas comerciales de Fortinet, Inc. ZT Network es Fortinet Engage Advocate Partner; el uso de estas marcas se realiza conforme a las directrices de marca de Fortinet.</span>
   </footer>
 
 </div>
