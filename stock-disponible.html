@@ -626,6 +626,8 @@
 
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
   .card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px;transition:border-color .15s ease, transform .15s ease;}
+  .card-thumb{width:100%;aspect-ratio:4/3;border-radius:8px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:2px;}
+  .card-thumb img{width:100%;height:100%;object-fit:contain;padding:10px;}
   .card:hover{border-color:var(--border-hi);transform:translateY(-2px);}
   .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
   .sku{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);letter-spacing:.03em;}
@@ -766,12 +768,13 @@
           </div>
         </div>
         <div class="card">
+          <div class="card-thumb"><img src="/assets/productos/thumbs/fortigate-60f.webp" alt="FortiGate-60F Bundle" loading="lazy"></div>
           <div class="card-top"><span class="sku">FG-60F-BDL-950-12</span><span class="badge">&#9679; Disponible</span></div>
           <h3>FortiGate-60F Bundle</h3>
           <p class="desc">El firewall más vendido para PyME, con licencia UTP lista para activar.</p>
           <div class="price-block">
             <div class="price">$1.187.390<small>IVA incluido</small></div>
-            <a class="card-link" href="/fortigate-60f-bundle">Ver detalle y comprar &rarr;</a>
+            <a class="card-link" href="/fortigate-60f-bundle">Ver detalle y cotizar &rarr;</a>
           </div>
         </div>
         <div class="card">
