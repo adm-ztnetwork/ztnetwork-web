@@ -105,8 +105,58 @@
   .specs-table{width:100%;border-collapse:collapse;}
   .specs-table tr{border-bottom:1px solid var(--border);}
   .specs-table td{padding:12px 4px;font-size:14px;}
-  .specs-table td:first-child{color:var(--text-muted);width:40%;}
-  .specs-table td:last-child{color:var(--text-hi);}
+  .specs-table td:first-child{color:var(--text-muted);width:52%;}
+  .specs-table td:last-child{color:var(--text-hi);text-align:right;font-family:'JetBrains Mono',monospace;font-size:13px;}
+
+  .product-top{display:grid;grid-template-columns:340px 1fr;gap:32px;margin-top:24px;align-items:start;}
+  @media (max-width:720px){.product-top{grid-template-columns:1fr;}}
+
+  .gallery-main{
+    position:relative;border:1px solid var(--border);border-radius:12px;background:var(--bg-card);
+    aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in;
+  }
+  .gallery-main img{width:100%;height:100%;object-fit:contain;padding:20px;}
+  .gallery-zoom-hint{
+    position:absolute;bottom:10px;right:10px;background:rgba(5,11,26,.75);border:1px solid var(--border-hi);
+    border-radius:20px;padding:5px 12px;font-size:11px;color:var(--text-mid);display:flex;align-items:center;gap:5px;
+    cursor:zoom-in;backdrop-filter:blur(4px);
+  }
+  .gallery-thumbs{display:flex;gap:8px;margin-top:10px;}
+  .gallery-thumb{
+    width:56px;height:56px;border-radius:8px;border:1px solid var(--border);background:var(--bg-card);
+    cursor:pointer;overflow:hidden;padding:6px;transition:border-color .15s ease;flex-shrink:0;
+  }
+  .gallery-thumb img{width:100%;height:100%;object-fit:contain;}
+  .gallery-thumb:hover{border-color:var(--border-hi);}
+  .gallery-thumb.active{border-color:var(--cyan);}
+
+  .head-col h1{margin-top:0;}
+
+  .lightbox{
+    position:fixed;inset:0;background:rgba(3,8,18,.92);z-index:100;
+    display:none;align-items:center;justify-content:center;padding:40px;
+    backdrop-filter:blur(6px);cursor:zoom-out;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;}
+  .lightbox-close{
+    position:absolute;top:20px;right:24px;width:40px;height:40px;border-radius:50%;
+    background:var(--bg-card);border:1px solid var(--border-hi);color:var(--text-hi);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;line-height:1;
+  }
+
+  .includes-list{list-style:none;margin-top:14px;}
+  .includes-list li{
+    display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);
+    font-size:14px;color:var(--text-mid);
+  }
+  .includes-list li svg{flex-shrink:0;color:var(--green);margin-top:2px;}
+
+  .fit-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .fit-tag{
+    font-size:12.5px;color:var(--text-mid);border:1px solid var(--border);border-radius:20px;
+    padding:6px 13px;
+  }
 
   .datasheet-link{
     display:inline-flex;align-items:center;gap:7px;margin-top:22px;
@@ -154,37 +204,75 @@
   </div>
 
   <main class="wrap">
-    <div class="product-head">
-      <div>
-        <div class="sku-badge">SKU: FS-108F-FPOE</div>
-        <h1>FortiSwitch-108F-FPOE</h1>
+    <div class="product-top">
+      <div id="product-gallery">
+        <div class="gallery-main">
+          <img src="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-1.webp"
+               data-zoom="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-1-zoom.webp"
+               alt="FortiSwitch-108F-FPOE">
+          <span class="gallery-zoom-hint">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M11 8v6M8 11h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Ampliar
+          </span>
+        </div>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb active" data-full="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-1.webp" data-zoom="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-1-zoom.webp">
+            <img src="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-1.webp" alt="FortiSwitch-108F-FPOE — 1">
+          </div>
+          <div class="gallery-thumb" data-full="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-2.webp" data-zoom="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-2-zoom.webp">
+            <img src="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-2.webp" alt="FortiSwitch-108F-FPOE — 2">
+          </div>
+          <div class="gallery-thumb" data-full="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-3.webp" data-zoom="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-3-zoom.webp">
+            <img src="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-3.webp" alt="FortiSwitch-108F-FPOE — 3">
+          </div>
+          <div class="gallery-thumb" data-full="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-4.webp" data-zoom="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-4-zoom.webp">
+            <img src="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-4.webp" alt="FortiSwitch-108F-FPOE — 4">
+          </div>
+          <div class="gallery-thumb" data-full="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-5.webp" data-zoom="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-5-zoom.webp">
+            <img src="/assets/productos/fortiswitch-108f-fpoe/fortiswitch-108f-fpoe-5.webp" alt="FortiSwitch-108F-FPOE — 5">
+          </div>
+        </div>
       </div>
-      <span class="badge-stock">&#9679; Disponible</span>
+
+      <div class="head-col">
+            <div class="product-head">
+              <div>
+                <div class="sku-badge">SKU: FS-108F-FPOE</div>
+                <h1>FortiSwitch-108F-FPOE</h1>
+              </div>
+              <span class="badge-stock">&#9679; Disponible</span>
+            </div>
+        
+            <p class="lead">Switch PoE+ completo de 8 puertos con mayor presupuesto de potencia.</p>
+        
+            <div class="price-panel">
+              <div class="price">$457.030<small>IVA incluido · dólar observado + $5</small></div>
+              <div class="price-actions">
+                <a class="cta-icon primary" href="mailto:contacto@ztnetwork.cl?subject=Consulta%20FortiSwitch-108F-FPOE&body=Hola%2C%20me%20interesa%20el%20FortiSwitch-108F-FPOE%20de%20stock%20disponible">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6.75C3 5.784 3.784 5 4.75 5h14.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0119.25 19H4.75A1.75 1.75 0 013 17.25V6.75z" stroke="currentColor" stroke-width="1.6"/><path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Ver detalle y cotizar
+                </a>
+                <a class="cta-icon secondary" href="https://wa.me/56974679583?text=Hola%2C%20me%20interesa%20el%20FortiSwitch-108F-FPOE%20de%20stock%20disponible" target="_blank" rel="noopener">
+                  <svg width="14" height="14" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#25D366" d="M16.001 3C9.373 3 4 8.373 4 15c0 2.362.687 4.564 1.872 6.418L4 29l7.77-1.837A11.93 11.93 0 0016 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3zm0 21.8a9.77 9.77 0 01-4.98-1.36l-.357-.21-4.61 1.09 1.023-4.49-.232-.366A9.76 9.76 0 016.2 15c0-5.404 4.397-9.8 9.801-9.8 5.403 0 9.8 4.396 9.8 9.8 0 5.403-4.397 9.8-9.8 9.8z"/><path fill="#25D366" d="M21.19 18.104c-.283-.142-1.67-.824-1.929-.918-.259-.095-.448-.142-.636.142-.19.283-.732.918-.898 1.107-.165.19-.33.213-.613.071-.283-.142-1.195-.44-2.276-1.404-.841-.75-1.409-1.677-1.574-1.96-.165-.283-.018-.436.124-.577.128-.127.283-.33.424-.495.142-.165.19-.283.283-.472.095-.19.047-.354-.024-.495-.07-.142-.636-1.532-.872-2.099-.23-.552-.463-.478-.636-.487l-.542-.01c-.19 0-.495.071-.755.354-.259.283-.99.968-.99 2.36s1.014 2.737 1.156 2.926c.141.19 1.994 3.045 4.834 4.27.676.292 1.204.466 1.616.596.679.216 1.297.185 1.786.112.545-.081 1.67-.683 1.906-1.343.236-.66.236-1.226.165-1.343-.07-.118-.259-.19-.542-.33z"/></svg>
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+      </div>
     </div>
 
-    <p class="lead">Switch PoE+ completo de 8 puertos con mayor presupuesto de potencia.</p>
-
-    <div class="price-panel">
-      <div class="price">$457.030<small>IVA incluido · dólar observado + $5</small></div>
-      <div class="price-actions">
-        <a class="cta-icon primary" href="mailto:contacto@ztnetwork.cl?subject=Consulta%20FortiSwitch-108F-FPOE&body=Hola%2C%20me%20interesa%20el%20FortiSwitch-108F-FPOE%20de%20stock%20disponible">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6.75C3 5.784 3.784 5 4.75 5h14.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0119.25 19H4.75A1.75 1.75 0 013 17.25V6.75z" stroke="currentColor" stroke-width="1.6"/><path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Correo
-        </a>
-        <a class="cta-icon secondary" href="https://wa.me/56974679583?text=Hola%2C%20me%20interesa%20el%20FortiSwitch-108F-FPOE%20de%20stock%20disponible" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#25D366" d="M16.001 3C9.373 3 4 8.373 4 15c0 2.362.687 4.564 1.872 6.418L4 29l7.77-1.837A11.93 11.93 0 0016 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3zm0 21.8a9.77 9.77 0 01-4.98-1.36l-.357-.21-4.61 1.09 1.023-4.49-.232-.366A9.76 9.76 0 016.2 15c0-5.404 4.397-9.8 9.801-9.8 5.403 0 9.8 4.396 9.8 9.8 0 5.403-4.397 9.8-9.8 9.8z"/><path fill="#25D366" d="M21.19 18.104c-.283-.142-1.67-.824-1.929-.918-.259-.095-.448-.142-.636.142-.19.283-.732.918-.898 1.107-.165.19-.33.213-.613.071-.283-.142-1.195-.44-2.276-1.404-.841-.75-1.409-1.677-1.574-1.96-.165-.283-.018-.436.124-.577.128-.127.283-.33.424-.495.142-.165.19-.283.283-.472.095-.19.047-.354-.024-.495-.07-.142-.636-1.532-.872-2.099-.23-.552-.463-.478-.636-.487l-.542-.01c-.19 0-.495.071-.755.354-.259.283-.99.968-.99 2.36s1.014 2.737 1.156 2.926c.141.19 1.994 3.045 4.834 4.27.676.292 1.204.466 1.616.596.679.216 1.297.185 1.786.112.545-.081 1.67-.683 1.906-1.343.236-.66.236-1.226.165-1.343-.07-.118-.259-.19-.542-.33z"/></svg>
-          WhatsApp
-        </a>
-      </div>
-    </div>
-
-    <h2>Especificaciones</h2>
+    <h2>Especificaciones técnicas</h2>
     <table class="specs-table">
-      <tr><td>&#8226;</td><td>8 puertos GE con PoE+ completo</td></tr>
-      <tr><td>&#8226;</td><td>Mayor presupuesto de potencia que el POE estándar</td></tr>
-      <tr><td>&#8226;</td><td>Gestionado vía FortiLink desde FortiGate</td></tr>
-      <tr><td>&#8226;</td><td>Ideal para cámaras IP y AP de alta demanda</td></tr>
+      <tr><td>Puertos</td><td>8x GE</td></tr>
+      <tr><td>Alimentación</td><td>PoE completo en todos los puertos</td></tr>
+      <tr><td>Gestión</td><td>FortiLink o standalone</td></tr>
     </table>
+    <h2>Ideal para</h2>
+    <div class="fit-tags">
+      <span class="fit-tag">Oficinas pequeñas con múltiples APs/teléfonos IP</span>
+      <span class="fit-tag">Extensión de red desde un FortiGate 40F/60F</span>
+    </div>
+
 
     <a class="datasheet-link" href="https://www.fortinet.com/content/dam/fortinet/assets/data-sheets/pdf/fortiswitch-secure-access-series.pdf" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2h9l5 5v13a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2z" stroke="currentColor" stroke-width="1.5"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.5"/></svg>Ver hoja de datos oficial (Fortinet)</a>
 
@@ -211,5 +299,12 @@
     ZT Network es Fortinet Engage Advocate Partner · © 2026 ZTNETWORK LIMITADA
   </footer>
 
+
+  <div class="lightbox" id="product-lightbox">
+    <button class="lightbox-close" aria-label="Cerrar">&times;</button>
+    <img src="" alt="FortiSwitch-108F-FPOE — vista ampliada">
+  </div>
+
+  <script src="/assets/js/product-zoom.js" defer></script>
 </body>
 </html>
