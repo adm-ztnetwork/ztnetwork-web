@@ -628,6 +628,30 @@
   .card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px;transition:border-color .15s ease, transform .15s ease;}
   .card-thumb{width:100%;aspect-ratio:4/3;border-radius:8px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:2px;}
   .card-thumb img{width:100%;height:100%;object-fit:contain;padding:10px;}
+
+  .search-wrap{margin:0 0 8px;}
+  .search-box{
+    position:relative;max-width:480px;
+  }
+  .search-box input{
+    width:100%;padding:13px 44px 13px 44px;border-radius:10px;
+    border:1px solid var(--border);background:var(--bg-card);color:var(--text-hi);
+    font-family:'Inter',sans-serif;font-size:14.5px;outline:none;transition:border-color .15s ease;
+  }
+  .search-box input:focus{border-color:var(--border-hi);}
+  .search-box input::placeholder{color:var(--text-muted);}
+  .search-box svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none;}
+  .search-clear{
+    position:absolute;right:10px;top:50%;transform:translateY(-50%);
+    background:none;border:none;color:var(--text-muted);cursor:pointer;padding:6px;
+    display:none;line-height:0;
+  }
+  .search-clear.show{display:block;}
+  .search-count{font-size:12.5px;color:var(--text-muted);margin-top:8px;}
+  .no-results{display:none;text-align:center;padding:48px 20px;color:var(--text-mid);font-size:14.5px;}
+  .no-results.show{display:block;}
+  .cat.hidden-by-search{display:none;}
+  .card.hidden-by-search{display:none;}
   .card:hover{border-color:var(--border-hi);transform:translateY(-2px);}
   .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
   .sku{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);letter-spacing:.03em;}
@@ -693,6 +717,21 @@
       </div>
     </div>
   </header>
+
+  <div class="wrap search-wrap">
+    <div class="search-box">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input type="text" id="product-search" placeholder="Buscar por modelo, SKU o palabra clave..." autocomplete="off">
+      <button class="search-clear" id="search-clear" aria-label="Limpiar búsqueda">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="search-count" id="search-count"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="no-results" id="no-results">No encontramos productos que coincidan con tu búsqueda. Prueba con otro término, o <a href="mailto:contacto@ztnetwork.cl" style="color:var(--cyan);">escríbenos directo</a> si buscas algo específico.</div>
+  </div>
 
   <section class="cat">
     <div class="wrap">
@@ -949,5 +988,6 @@
     ZT Network es Fortinet Engage Advocate Partner · © 2026 ZTNETWORK LIMITADA
   </footer>
 
+  <script src="/assets/js/catalog-search.js" defer></script>
 </body>
 </html>
