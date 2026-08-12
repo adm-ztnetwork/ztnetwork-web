@@ -643,14 +643,6 @@
   .search-box input:focus{border-color:var(--cyan);box-shadow:0 8px 28px rgba(0,0,0,.35), 0 0 0 3px rgba(91,184,255,.25);}
   .search-box input::placeholder{color:var(--text-mid);}
   .search-box svg{position:absolute;left:19px;top:50%;transform:translateY(-50%);color:var(--cyan);pointer-events:none;}
-  .search-clear{
-    position:absolute;right:16px;top:50%;transform:translateY(-50%);
-    background:rgba(255,255,255,.06);border:none;border-radius:50%;color:var(--text-mid);
-    cursor:pointer;width:26px;height:26px;display:none;align-items:center;justify-content:center;
-    transition:background .15s ease,color .15s ease;
-  }
-  .search-clear:hover{background:rgba(255,255,255,.12);color:var(--text-hi);}
-  .search-clear.show{display:flex;}
   .search-count{font-size:12.5px;color:var(--text-muted);margin-top:10px;text-align:center;}
   .no-results{display:none;text-align:center;padding:48px 20px;color:var(--text-mid);font-size:14.5px;}
   .no-results.show{display:block;}
@@ -726,9 +718,6 @@
     <div class="search-box">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       <input type="text" id="product-search" placeholder="Buscar por modelo, SKU o palabra clave..." autocomplete="off">
-      <button class="search-clear" id="search-clear" aria-label="Limpiar búsqueda">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </button>
     </div>
     <div class="search-count" id="search-count"></div>
   </div>

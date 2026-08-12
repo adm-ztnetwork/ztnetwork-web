@@ -3,7 +3,6 @@
 
 (function () {
   var input = document.getElementById('product-search');
-  var clearBtn = document.getElementById('search-clear');
   var countEl = document.getElementById('search-count');
   var noResults = document.getElementById('no-results');
   if (!input) return;
@@ -32,7 +31,6 @@
 
   function filter() {
     var query = normalize(input.value.trim());
-    clearBtn.classList.toggle('show', query.length > 0);
 
     if (!query) {
       cardData.forEach(function (d) { d.card.classList.remove('hidden-by-search'); });
@@ -60,9 +58,4 @@
   }
 
   input.addEventListener('input', filter);
-  clearBtn.addEventListener('click', function () {
-    input.value = '';
-    filter();
-    input.focus();
-  });
 })();
