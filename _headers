@@ -14,3 +14,6 @@
 
 /assets/fortinet/nse/*
   ! Cross-Origin-Resource-Policy
+
+/assets/firma/*
+  ! Cross-Origin-Resource-Policy
