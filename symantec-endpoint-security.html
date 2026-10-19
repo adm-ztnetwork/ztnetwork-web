@@ -255,6 +255,38 @@ footer .legal{font-size:.72rem;color:var(--text-muted);line-height:1.5;max-width
 .text-block li{margin:.3rem 0}
 .btn,.sol a.more,.crumbs a,footer a{text-decoration:none}
 .sol a.more:hover,.crumbs a:hover,footer a:hover{text-decoration:underline}
+.partner-tile img{display:block;width:210px;max-width:100%;height:auto;margin:.9rem auto .7rem}
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:50;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .2s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px}
+.express{display:grid;grid-template-columns:1.1fr 1fr;gap:1.6rem;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.9rem 2rem;margin-bottom:2.8rem}
+.express h2{font-size:1.3rem;margin-bottom:.6rem}
+.express p{color:var(--text-secondary);font-size:.96rem}
+.express ol{margin:.2rem 0 0 1.2rem;color:var(--text-secondary)}
+.express li{margin:.45rem 0}
+.express li b{color:var(--text)}
+.express .cta-btns{justify-content:flex-start;margin-top:1.1rem}
+.express .note{font-size:.85rem;margin-top:.9rem}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.8rem}
+.why div{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.2rem}
+.why b{display:block;font-size:1.02rem;margin-bottom:.35rem}
+.why span{color:var(--text-secondary);font-size:.9rem}
+.law{border-left:3px solid #FFC933;background:rgba(255,200,0,.05);border-radius:0 14px 14px 0;padding:1.5rem 1.8rem;margin-bottom:2.8rem}
+.law h2{font-size:1.2rem;margin-bottom:.6rem}
+.law p{color:var(--text-secondary);font-size:.96rem}
+.law p+p{margin-top:.6rem}
+.law b{color:var(--text)}
+.cmp-wrap{overflow-x:auto;margin-bottom:2.8rem;border:1px solid var(--border);border-radius:14px}
+.cmp{width:100%;border-collapse:collapse;min-width:560px;font-size:.93rem}
+.cmp th,.cmp td{padding:.75rem 1rem;border-bottom:1px solid var(--border);text-align:center}
+.cmp th:first-child,.cmp td:first-child{text-align:left;color:var(--text-secondary)}
+.cmp thead th{background:rgba(30,144,255,.08);font-size:.95rem}
+.cmp thead th.hl{background:rgba(255,200,0,.12);color:#FFC933}
+.cmp td.y{color:#3ddc84;font-weight:700}
+.cmp td.n{color:var(--text-secondary);opacity:.5}
+.cmp tr:last-child td{border-bottom:none}
+@media(max-width:800px){.express{grid-template-columns:1fr}.why{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.why{grid-template-columns:1fr}.wa-float{width:52px;height:52px}}
 </style>
 </head>
 <body>
@@ -271,23 +303,20 @@ footer .legal{font-size:.72rem;color:var(--text-muted);line-height:1.5;max-width
       <h1>Symantec <span class="grad">Endpoint Security</span></h1>
       <p class="lead">El antivirus corporativo de Symantec evolucionó a <b>Symantec Endpoint Security (SES)</b>: protección contra malware y ransomware, <b>EDR</b> en la edición Complete y gestión en la nube, híbrida u on-premise. Cotizamos licencias nuevas, renovaciones de <b>Symantec Endpoint Protection</b> y migraciones desde otras marcas.</p>
     </div>
-    <div class="badge-wrap"><div class="partner-tile"><div class="t1">Partner Broadcom</div><div class="t2">Endpoint Security</div><div class="t3">Antivirus corporativo · EDR</div></div></div>
+    <div class="badge-wrap"><div class="partner-tile"><div class="t1">Partner Broadcom</div><img src="/assets/brand/logos/symantec.svg" alt="Symantec by Broadcom" width="210" height="73"><div class="t3">Antivirus corporativo · EDR</div></div></div>
   </section>
 
   <span class="eyebrow">Qué incluye</span>
   <div class="sol-grid">
-<div class="sol"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Prevención de amenazas</h3><p>Antimalware, protección contra ransomware y exploits, y firewall e IPS a nivel de equipo.</p></div><div class="sol"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12l6-6"/></svg></div><h3>EDR (edición Complete)</h3><p>Detección y respuesta: visibilidad de lo que ocurre en cada equipo, investigación y contención de incidentes.</p></div><div class="sol"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Control de dispositivos y aplicaciones</h3><p>Restringe USB, aplicaciones y cambios no autorizados en PC y servidores.</p></div><div class="sol"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3>Gestión flexible</h3><p>Consola en la nube, híbrida u on-premise, según tu operación y políticas.</p></div><div class="sol"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div><h3>Para cualquier tamaño</h3><p>Licenciamiento por equipo o usuario, para PC, servidores y dispositivos móviles.</p></div><div class="sol"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div><h3>Renovación y migración</h3><p>Renovamos Symantec Endpoint Protection y te ayudamos a pasar a SES o a migrar desde otra marca.</p><a class="more" href="/renovacion-symantec">Ver detalle →</a></div>
+<div class="sol"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Prevención de amenazas</h3><p>Antimalware, protección contra ransomware y exploits, y firewall e IPS a nivel de equipo.</p></div><div class="sol"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12l6-6"/></svg></div><h3>EDR (edición Complete)</h3><p>Detección y respuesta: visibilidad de lo que ocurre en cada equipo, investigación y contención de incidentes.</p></div><div class="sol"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Control de dispositivos y aplicaciones</h3><p>Restringe USB, aplicaciones y cambios no autorizados en PC y servidores.</p></div><div class="sol"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3>Un solo agente, gestión flexible</h3><p>Agente liviano que integra protección, DLP, ZTNA y proxy en la nube, con consola en la nube, híbrida u on-premise.</p></div><div class="sol"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div><h3>Para cualquier tamaño</h3><p>Licenciamiento por equipo o usuario, para PC, servidores y dispositivos móviles.</p></div><div class="sol"><div class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div><h3>Renovación y migración</h3><p>Renovamos Symantec Endpoint Protection y te ayudamos a pasar a SES o a migrar desde otra marca.</p><a class="more" href="/renovacion-symantec">Ver detalle →</a></div>
   </div>
 
-  <div class="products">
-    <h2>Ediciones que cotizamos</h2>
-    <div class="prod-list">
-      <div><span class="dot">▸</span><span><b>SES Enterprise</b>: protección y gestión centralizada</span></div>
-      <div><span class="dot">▸</span><span><b>SES Complete</b>: protección + EDR y funciones avanzadas</span></div>
-      <div><span class="dot">▸</span><span><b>Symantec Endpoint Protection</b>: renovación</span></div>
-      <div><span class="dot">▸</span><span><b>Carbon Black</b> Cloud y EDR</span></div>
-    </div>
-  </div>
+
+  <span class="eyebrow">Comparativa de ediciones</span>
+  <div class="cmp-wrap"><table class="cmp">
+    <thead><tr><th>Funcionalidad</th><th>Endpoint Protection (SEP)</th><th>SES Enterprise</th><th class="hl">SES Complete</th></tr></thead>
+    <tbody><tr><td>Antimalware y protección contra ransomware</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr><tr><td>Firewall y prevención de intrusiones (IPS)</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr><tr><td>Control de dispositivos (USB) y aplicaciones</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr><tr><td>Consola en la nube, híbrida u on-premise</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr><tr><td>Agente único y liviano</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr><tr><td>Protección de dispositivos móviles</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr><tr><td>EDR: detección y respuesta</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr><tr><td>Protección de Active Directory</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr><tr><td>Protección adaptativa y búsqueda de amenazas</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr></tbody>
+  </table></div>
 
   <div class="offer">
     <h2>¿Usas otro antivirus o EDR? <span>Te mejoramos el precio.</span></h2>
@@ -298,6 +327,25 @@ footer .legal{font-size:.72rem;color:var(--text-muted);line-height:1.5;max-width
       <li>Te acompañamos en la migración y la puesta en marcha.</li>
     </ul>
     <div class="cta-btns"><a href="mailto:contacto@ztnetwork.cl?subject=Quiero%20mejorar%20mi%20cotizaci%C3%B3n%20de%20antivirus/EDR/DLP" class="btn btn--mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> contacto@ztnetwork.cl</a><a href="https://wa.me/56974679583?text=Hola%20ZT%20Network%2C%20quiero%20que%20me%20mejoren%20mi%20cotizaci%C3%B3n%20actual%20de%20antivirus/EDR/DLP%20con%20Symantec" target="_blank" rel="noopener" class="btn btn--wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg> +56 9 7467 9583</a></div>
+  </div>
+
+  <div class="express">
+    <div>
+      <h2>Cotiza en 1 minuto, sin formularios</h2>
+      <p>Escríbenos por WhatsApp o correo con estos 3 datos y te respondemos con la propuesta:</p>
+      <ol>
+        <li><b>Producto</b> que necesitas o el que usas hoy (de cualquier marca).</li>
+        <li><b>Cantidad</b> de equipos o usuarios.</li>
+        <li><b>Fecha de vencimiento</b> de tu licencia actual.</li>
+      </ol>
+    </div>
+    <div>
+      <p><b>¿Tienes una cotización o factura vigente?</b> Mándanosla tal cual, una foto o el PDF basta. Así podemos mejorar el precio sobre algo concreto.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/56974679583?text=Hola%20ZT%20Network%2C%20necesito%20cotizar%20Symantec%20Endpoint%20Security" target="_blank" rel="noopener" class="btn btn--wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg> WhatsApp</a>
+        <a href="mailto:contacto@ztnetwork.cl?subject=Cotizaci%C3%B3n%20Symantec%20Endpoint%20Security&body=Hola%20ZT%20Network%2C%0A%0ANecesito%20cotizar%20Symantec%3A%0A-%20Producto%20%28o%20el%20que%20uso%20hoy%2C%20de%20cualquier%20marca%29%3A%0A-%20Cantidad%20de%20equipos%20o%20usuarios%3A%0A-%20Fecha%20de%20vencimiento%3A%0A-%20Empresa%20y%20RUT%3A%0A%0A%28Si%20tengo%20una%20cotizaci%C3%B3n%20o%20factura%20vigente%2C%20la%20adjunto%20para%20que%20la%20mejoren.%29%0A" class="btn btn--mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> Correo</a>
+      </div>
+    </div>
   </div>
 <span class="eyebrow">Preguntas frecuentes</span><div class="faq"><details><summary>¿Cuál es la diferencia entre Symantec Endpoint Protection y Endpoint Security?</summary><p>Symantec Endpoint Security (SES) es la evolución de Symantec Endpoint Protection (SEP): suma gestión en la nube y, en la edición Complete, EDR. Te ayudamos a elegir la edición correcta al renovar.</p></details><details><summary>¿Symantec Endpoint Security incluye EDR?</summary><p>Sí, la edición SES Complete incluye capacidades de detección y respuesta (EDR). La edición Enterprise se enfoca en prevención y gestión.</p></details><details><summary>¿Cuánto cuesta Symantec Endpoint Security?</summary><p>El precio se negocia con el fabricante según la cantidad de equipos, la edición y el período. Envíanos tu caso o tu cotización actual y te presentamos la mejor propuesta.</p></details><details><summary>¿Puedo cambiarme a Symantec desde otra marca?</summary><p>Sí. Te cotizamos el equivalente en Symantec a un precio menor que tu solución actual y te apoyamos en la migración.</p></details></div>
   <div class="cta">
@@ -313,11 +361,14 @@ footer .legal{font-size:.72rem;color:var(--text-muted);line-height:1.5;max-width
       <a href="/renovacion-symantec">Renovación Symantec</a>
       <a href="/symantec-endpoint-security">Endpoint Security</a>
       <a href="/symantec-dlp">DLP</a>
+      <a href="/antivirus-corporativo">Antivirus corporativo</a>
       <a href="/privacidad.html">Política de Privacidad</a>
     </div>
     <p class="legal">Symantec, Carbon Black y Broadcom son marcas comerciales de Broadcom Inc. o sus filiales. ZT Network es partner de Broadcom y comercializa sus soluciones a través de distribuidores autorizados en Chile.<br>© 2026 ZTNETWORK LIMITADA</p>
   </footer>
 
 </div>
+
+<a class="wa-float" href="https://wa.me/56974679583?text=Hola%20ZT%20Network%2C%20necesito%20cotizar%20Symantec%20Endpoint%20Security" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg></a>
 </body>
 </html>

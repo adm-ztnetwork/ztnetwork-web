@@ -255,6 +255,38 @@ footer .legal{font-size:.72rem;color:var(--text-muted);line-height:1.5;max-width
 .text-block li{margin:.3rem 0}
 .btn,.sol a.more,.crumbs a,footer a{text-decoration:none}
 .sol a.more:hover,.crumbs a:hover,footer a:hover{text-decoration:underline}
+.partner-tile img{display:block;width:210px;max-width:100%;height:auto;margin:.9rem auto .7rem}
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:50;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .2s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px}
+.express{display:grid;grid-template-columns:1.1fr 1fr;gap:1.6rem;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.9rem 2rem;margin-bottom:2.8rem}
+.express h2{font-size:1.3rem;margin-bottom:.6rem}
+.express p{color:var(--text-secondary);font-size:.96rem}
+.express ol{margin:.2rem 0 0 1.2rem;color:var(--text-secondary)}
+.express li{margin:.45rem 0}
+.express li b{color:var(--text)}
+.express .cta-btns{justify-content:flex-start;margin-top:1.1rem}
+.express .note{font-size:.85rem;margin-top:.9rem}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.8rem}
+.why div{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.2rem}
+.why b{display:block;font-size:1.02rem;margin-bottom:.35rem}
+.why span{color:var(--text-secondary);font-size:.9rem}
+.law{border-left:3px solid #FFC933;background:rgba(255,200,0,.05);border-radius:0 14px 14px 0;padding:1.5rem 1.8rem;margin-bottom:2.8rem}
+.law h2{font-size:1.2rem;margin-bottom:.6rem}
+.law p{color:var(--text-secondary);font-size:.96rem}
+.law p+p{margin-top:.6rem}
+.law b{color:var(--text)}
+.cmp-wrap{overflow-x:auto;margin-bottom:2.8rem;border:1px solid var(--border);border-radius:14px}
+.cmp{width:100%;border-collapse:collapse;min-width:560px;font-size:.93rem}
+.cmp th,.cmp td{padding:.75rem 1rem;border-bottom:1px solid var(--border);text-align:center}
+.cmp th:first-child,.cmp td:first-child{text-align:left;color:var(--text-secondary)}
+.cmp thead th{background:rgba(30,144,255,.08);font-size:.95rem}
+.cmp thead th.hl{background:rgba(255,200,0,.12);color:#FFC933}
+.cmp td.y{color:#3ddc84;font-weight:700}
+.cmp td.n{color:var(--text-secondary);opacity:.5}
+.cmp tr:last-child td{border-bottom:none}
+@media(max-width:800px){.express{grid-template-columns:1fr}.why{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.why{grid-template-columns:1fr}.wa-float{width:52px;height:52px}}
 </style>
 </head>
 <body>
@@ -271,7 +303,7 @@ footer .legal{font-size:.72rem;color:var(--text-muted);line-height:1.5;max-width
       <h1>Renovación de licencias <span class="grad">Symantec</span></h1>
       <p class="lead">¿Se te vence Symantec? Renovamos tus licencias de <b>Symantec Endpoint Protection</b>, <b>Endpoint Security</b>, <b>DLP</b> y otras soluciones Symantec, asociadas a tu <b>Site ID de Broadcom</b>. Te cotizamos rápido y buscamos el mejor precio para tu renovación.</p>
     </div>
-    <div class="badge-wrap"><div class="partner-tile"><div class="t1">Partner Broadcom</div><div class="t2">Renovación</div><div class="t3">Symantec Endpoint · DLP · Web · Email</div></div></div>
+    <div class="badge-wrap"><div class="partner-tile"><div class="t1">Partner Broadcom</div><img src="/assets/brand/logos/symantec.svg" alt="Symantec by Broadcom" width="210" height="73"><div class="t3">Symantec Endpoint · DLP · Web · Email</div></div></div>
   </section>
 
   <div class="text-block">
@@ -307,6 +339,33 @@ footer .legal{font-size:.72rem;color:var(--text-muted);line-height:1.5;max-width
       <div><span class="dot">▸</span><span>Tu <b>cotización anterior</b>, para mejorarla</span></div>
     </div>
   </div>
+
+  <span class="eyebrow">Por qué cotizar con ZT Network</span>
+  <div class="why">
+    <div><b>Precio negociado</b><span>Symantec no tiene lista fija: pedimos al fabricante un precio especial para tu caso.</span></div>
+    <div><b>Respuesta rápida</b><span>Hablas directo con los socios por WhatsApp o correo, sin call center.</span></div>
+    <div><b>Facturación en Chile</b><span>Cotizamos y facturamos en pesos chilenos, como empresa chilena.</span></div>
+    <div><b>Expertos en seguridad</b><span>Más de 15 años en ciberseguridad empresarial. Te ayudamos a elegir, migrar y poner en marcha.</span></div>
+  </div>
+
+  <div class="express">
+    <div>
+      <h2>Cotiza en 1 minuto, sin formularios</h2>
+      <p>Escríbenos por WhatsApp o correo con estos 3 datos y te respondemos con la propuesta:</p>
+      <ol>
+        <li><b>Producto</b> que necesitas o el que usas hoy (de cualquier marca).</li>
+        <li><b>Cantidad</b> de equipos o usuarios.</li>
+        <li><b>Fecha de vencimiento</b> de tu licencia actual.</li>
+      </ol>
+    </div>
+    <div>
+      <p><b>¿Tienes una cotización o factura vigente?</b> Mándanosla tal cual, una foto o el PDF basta. Así podemos mejorar el precio sobre algo concreto.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/56974679583?text=Hola%20ZT%20Network%2C%20necesito%20renovar%20licencias%20Symantec" target="_blank" rel="noopener" class="btn btn--wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg> WhatsApp</a>
+        <a href="mailto:contacto@ztnetwork.cl?subject=Renovaci%C3%B3n%20licencias%20Symantec&body=Hola%20ZT%20Network%2C%0A%0ANecesito%20cotizar%20Symantec%3A%0A-%20Producto%20%28o%20el%20que%20uso%20hoy%2C%20de%20cualquier%20marca%29%3A%0A-%20Cantidad%20de%20equipos%20o%20usuarios%3A%0A-%20Fecha%20de%20vencimiento%3A%0A-%20Empresa%20y%20RUT%3A%0A%0A%28Si%20tengo%20una%20cotizaci%C3%B3n%20o%20factura%20vigente%2C%20la%20adjunto%20para%20que%20la%20mejoren.%29%0A" class="btn btn--mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> Correo</a>
+      </div>
+    </div>
+  </div>
 <span class="eyebrow">Preguntas frecuentes</span><div class="faq"><details><summary>¿Cómo renuevo mi licencia Symantec en Chile?</summary><p>Escríbenos con el producto, la cantidad de licencias y la fecha de vencimiento. Cotizamos la renovación con el fabricante y, una vez confirmado el pago, las licencias se asignan a tu Site ID de Broadcom.</p></details><details><summary>¿Qué es el Site ID de Broadcom?</summary><p>Es el identificador de tu empresa en el portal de Broadcom al que quedan asociadas las licencias y el soporte. Si no lo tienes a mano, te ayudamos a encontrarlo.</p></details><details><summary>¿Qué pasa si mi licencia Symantec ya venció?</summary><p>Igual se puede renovar. Coordinamos con el fabricante la reactivación; según el tiempo vencido puede variar el valor.</p></details><details><summary>¿Pueden mejorar el precio de mi renovación?</summary><p>Sí. Envíanos la cotización de renovación que recibiste y buscamos con el fabricante un mejor precio para tu caso.</p></details></div>
   <div class="cta">
     <h2>¿Se te vence Symantec?</h2>
@@ -321,11 +380,14 @@ footer .legal{font-size:.72rem;color:var(--text-muted);line-height:1.5;max-width
       <a href="/renovacion-symantec">Renovación Symantec</a>
       <a href="/symantec-endpoint-security">Endpoint Security</a>
       <a href="/symantec-dlp">DLP</a>
+      <a href="/antivirus-corporativo">Antivirus corporativo</a>
       <a href="/privacidad.html">Política de Privacidad</a>
     </div>
     <p class="legal">Symantec, Carbon Black y Broadcom son marcas comerciales de Broadcom Inc. o sus filiales. ZT Network es partner de Broadcom y comercializa sus soluciones a través de distribuidores autorizados en Chile.<br>© 2026 ZTNETWORK LIMITADA</p>
   </footer>
 
 </div>
+
+<a class="wa-float" href="https://wa.me/56974679583?text=Hola%20ZT%20Network%2C%20necesito%20renovar%20licencias%20Symantec" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg></a>
 </body>
 </html>
