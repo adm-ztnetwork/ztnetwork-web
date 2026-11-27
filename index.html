@@ -113,6 +113,14 @@
 .zt-partner__label span{color:#A8B8D0;font-size:.92rem;letter-spacing:.03em}
 .svc-group-label{grid-column:1 / -1;display:flex;align-items:center;gap:.7rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#5BB8FF;font-weight:700;margin:.6rem 0 -.1rem}
 .svc-group-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(91,184,255,.35),transparent)}
+.zt-partners2{display:flex;flex-direction:column;align-items:center;gap:.55rem;margin:1rem auto 0}
+.zt-partners2__lead{color:#A8B8D0;font-size:.85rem;letter-spacing:.03em;text-align:center}
+.zt-partners2__row{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem}
+.zt-partners2__tile{background:#fff;border-radius:10px;padding:8px 16px;height:48px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;min-width:140px;box-shadow:0 8px 22px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.10);transition:transform .25s}
+.zt-partners2__tile:hover{transform:translateY(-2px)}
+.zt-partners2__tile img{height:26px;width:auto;display:block}
+.zt-partners2__tile--txt{font-weight:700;color:#0A1F5C;font-size:1rem}
+.zt-partners2__note{color:#6A7C9A;font-size:.78rem;text-align:center;max-width:620px;line-height:1.45}
 .footer-legal{display:block;font-size:.72rem;color:#6A7C9A;line-height:1.5;max-width:760px;margin:.6rem auto 0;text-align:center}
 @media(max-width:520px){.zt-partner__tile{padding:8px 14px}.zt-partner__tile img{height:48px}.zt-partner__label b{font-size:1rem}.zt-partner__label span{font-size:.8rem}}
 </style>
@@ -149,6 +157,15 @@
         <span>Equipo certificado · Implementación y soporte en ciberseguridad</span>
       </div>
     </a>
+    <div class="zt-partners2" aria-label="Otras marcas de las que somos partners autorizados">
+      <div class="zt-partners2__lead">También somos partners autorizados de</div>
+      <div class="zt-partners2__row">
+        <a class="zt-partners2__tile" href="/symantec" aria-label="Symantec by Broadcom"><img src="/assets/brand/logos/symantec.svg" alt="Symantec by Broadcom" style="height:32px"></a>
+        <span class="zt-partners2__tile" aria-label="TeamViewer"><img src="/assets/brand/partners/teamviewer.png" alt="TeamViewer" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'zt-partners2__tile--txt',textContent:'[Logo TeamViewer]'}))"></span>
+        <span class="zt-partners2__tile" aria-label="Adobe"><img src="/assets/brand/partners/adobe.svg" alt="Adobe"></span>
+      </div>
+      <div class="zt-partners2__note">Sumamos solo fabricantes líderes en su categoría, para que tu empresa resuelva seguridad, soporte remoto y productividad con un único proveedor.</div>
+    </div>
     <!-- AVISO STOCK DISPONIBLE -->
     <a class="zt-alert" href="/stock-disponible" aria-label="Stock Fortinet disponible con despacho en 2 a 3 días hábiles en Santiago" style="display:flex;align-items:center;gap:.7rem;max-width:720px;margin:1.2rem auto 0;padding:.8rem 1.1rem;border:1px solid rgba(58,219,118,0.30);border-left:3px solid #3ADB76;border-radius:10px;background:rgba(58,219,118,0.07);text-decoration:none;line-height:1.35;">
       <span style="width:8px;height:8px;border-radius:50%;background:#3ADB76;box-shadow:0 0 8px #3ADB76;flex-shrink:0;animation:zt-pulse 1.6s ease-in-out infinite;"></span>
@@ -252,6 +269,32 @@
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
         ¿Renuevas Symantec o usas otro antivirus, EDR o DLP? Te mejoramos el precio →
       </a>
+
+      <div class="svc-group-label">Software empresarial</div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M8 10.5h8M13.5 8l2.5 2.5-2.5 2.5M10.5 8 8 10.5l2.5 2.5"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Soporte y Acceso Remoto</div>
+          <div class="scard-desc">Conexión remota segura para dar soporte y administrar equipos a distancia.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Licencias oficiales TeamViewer.</b>
+            <ul><li>Planes <b>Premium, Corporate y Tensor</b></li><li><b>TeamViewer ONE</b> para gestionar flotas de equipos</li><li>Acceso desatendido y soporte a móviles</li><li>Asesoría para elegir el plan correcto</li></ul>
+          </div>
+      </div>
+
+      <div class="scard" data-spark>
+        <div class="scard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 15l2.5 2.5L16 12"/></svg></div>
+        <div class="scard-content">
+          <div class="scard-name">Documentos y Creatividad</div>
+          <div class="scard-desc">Software para trabajar documentos, firmas y contenido de tu empresa.</div>
+        </div>
+        <div class="scard-tooltip">
+            <b>Licencias oficiales Adobe para empresas.</b>
+            <ul><li><b>Acrobat</b> para PDF y firma electrónica</li><li><b>Creative Cloud</b> para diseño y comunicaciones</li><li>Licenciamiento por usuario, administrado centralmente</li></ul>
+          </div>
+      </div>
 
       <div class="svc-group-label">Otros servicios</div>
 
